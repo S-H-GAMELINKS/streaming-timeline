@@ -2,8 +2,10 @@
 
 <h1>Messages</h1>
 
-<div id="messages">
-  <%= render @messages %>
-</div>
+<%= turbo_stream_from :messages %>
+
+<%= turbo_frame_tag "messages" do %>
+    <%= render @messages %>
+<% end %>
 
 <%= turbo_frame_tag "new_message", src: new_message_path, target: "_top" %>
