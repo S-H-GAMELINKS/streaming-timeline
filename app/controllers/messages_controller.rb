@@ -28,8 +28,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+        format.html { redirect_to messages_url, notice: 'Message was successfully created.' }
+        format.json { render :index, status: :created }
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
